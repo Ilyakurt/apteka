@@ -4,8 +4,6 @@ import ShopHeader from './components/ShopHeader';
 import ShopBody from './components/ShopBody';
 import ReactDOM from 'react-dom'
 
-const sqlite3 = require('sqlite3').verbose();
-
 function App() {
   const [items, setItems] = useState([]);
 
