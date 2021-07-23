@@ -1,12 +1,16 @@
-version: "3.6"
+version: "3.8"
 
 services:
     frontend:
         build:
             context: . 
             dockerfile: _docker/frontend/DockerFile
-        image: apteka
-    
+        container_name: frontend
+        command: npm run dev
+        ports:
+            - 3000:3000
         volumes:
             - ./frontend:/frontend
             - /frontend/node_modules
+
+
