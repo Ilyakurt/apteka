@@ -1,4 +1,6 @@
 import React from 'react';
+import {observer} from "mobx-react";
+
 
 const ShopItem = ( props ) => {
 
@@ -22,4 +24,4 @@ const ShopItem = ( props ) => {
     );
 }
 
-export default ShopItem;
+export default observer(ShopItem);
