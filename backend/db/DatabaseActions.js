@@ -1,41 +1,19 @@
-// import ShopBody from './ShopBody';
-
 const Router = require("express");
 
-// const sqlite3 = require('sqlite3').verbose();
-
-// const getObjectFromDB = () => {
-//     let db = new sqlite3.Database('./db.db');
-//     let sql = `SELECT product_id, name FROM products`;
-
-//     db.all(sql, [], (err, rows) => {
-//         if (err) {
-//             throw err;
-//         }
-//         rows.forEach((row) => {
-//             // console.log(row.name);
-//             insertOrUpdateItem(
-//                 {
-//                     id: row.product_id,
-//                     title: row.name, 
-//                     description: "descr", 
-//                     url: "url", 
-//                     date: Date.now()
-//                 }
-//             );
-//         });
-//     });
-
-//     db.close();
-// };
+let db = new sqlite3.Database('./db.db');
 
 const router = new Router()
 
 
 // GET ALL
-router.get('/get', function (req, res) {
-    let db = new sqlite3.Database('./db.db');
-    let sql = `SELECT product_id, name FROM products`;
+router.get('/', function (req, res) {
+
+    console.log('barev aper')
+    
+    let sql = `SELECT  p.product_id, name, mnn_id, mnn_name, mnn_code
+    FROM products p
+    LEFT JOIN mnn m
+    ON p.product_id = m.product_id`;
 
     var tempArr = []
 
@@ -56,9 +34,12 @@ router.get('/get', function (req, res) {
     });
 
     db.close();
+    console.log(tempArr)
     res.send(tempArr);
+    // res.render('index.ejs');
 });
 
+/*
 // DELETE ONE
 router.get('/', function (req, res) {
     let db = new sqlite3.Database('./db.db');
@@ -109,5 +90,6 @@ router.get('/b', function (req, res) {
     // send answer 
     res.send("Done");
 });
+*/
 
 module.exports = router;
