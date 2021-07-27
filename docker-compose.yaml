@@ -1,16 +1,47 @@
 version: "3.8"
 
 services:
-    frontend:
-        build:
-            context: . 
-            dockerfile: _docker/frontend/DockerFile
-        container_name: frontend
-        command: npm run dev
-        ports:
-            - 3000:3000
+    #    frontend:
+    #        build:
+    #            context: .
+    #            dockerfile: _docker/frontend/DockerFile
+    #        container_name: frontend
+    #        command: npm run dev
+    #        ports:
+    #            - 3000:3000
+    #        volumes:
+    #            - ./frontend:/frontend
+    #            - /frontend/node_modules
+    sqlite3:
+        image: nouchka/sqlite3:latest
+        stdin_open: true
+        tty: true
         volumes:
-            - ./frontend:/frontend
-            - /frontend/node_modules
+            - ./db:/backend/db
+    backend:
+        build:
+            context: .
+            dockerfile: _docker/backend/DockerFile
+        container_name: backend
+        stdin_open: true
+        tty: true
+        command: npm run dev
+        depends_on:
+            - sqlite3
+        ports:
+            - 8080:8080
+        volumes:
+            - ./backend:/backend
+            - /backend/node_modules
+#    bd:
+#        build:
+#            context: .
+#            dockerfile: _docker/DataBase/DockerFile
+#        container_name: backend
+#        ports:
+#            - 0000:0000
+#        volumes:
+#            - ./backend:/backend
+#            - /backend/node_modules
 
 

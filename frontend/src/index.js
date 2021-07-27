@@ -5,7 +5,8 @@ import ShopBody from './components/ShopBody';
 import ReactDOM from 'react-dom'
 import {Provider} from "mobx-react";
 import ItemStore from "./stores/ItemStore";
-import CardDetail from "./components/CardDetail";
+
+
 
 
 class App extends Component {
@@ -27,4 +28,17 @@ class App extends Component {
     }
 }
 
-ReactDOM.render((<App />), document.getElementById('root'));
+ReactDOM.render((
+    <App />
+), document.getElementById('root'));
+
+// function App() {
+//   const [items, setItems] = useState([]);
+//
+//   return (
+//     <div>
+//       <ShopHeader />
+//       <ShopBody items={items} setItems={setItems} />
+//     </div>
+//   );
+// }

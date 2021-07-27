@@ -1,0 +1,9 @@
+FROM node:14.17.3-alpine
+
+ADD /backend /backend
+
+WORKDIR /backend
+
+RUN npm install
+
+EXPOSE 8080
