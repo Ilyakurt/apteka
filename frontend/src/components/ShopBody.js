@@ -8,8 +8,6 @@ const ShopBody= props => {
     const [dialogState, setDialogState] = useState(false);
     const [activeCard, setActiveCard] = useState(null);
 
-    // console.log(props.ShopMain.deleteCard);
-
     return (
         <div className="shop-body">
             <div>

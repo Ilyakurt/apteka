@@ -8,8 +8,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import uuid from 'react-uuid'
 import {inject, observer} from "mobx-react";
 
-//дост.акт. эл-т из стора
-//дост.функц из стора
 const CardDetail = ( props ) => {
     const [inputTitle, setInputTitle] = useState("");
     const [inputDescription, setInputDescription] = useState("");
@@ -33,8 +31,6 @@ const CardDetail = ( props ) => {
     const urlHandler = e => {
         setInputURL(e.target.value)
     };
-
-    //console.log(props.ShopMain);
 
     const insertOrUpdateItemMain = () => {
         props.ShopMain.insertOrUpdateItem(
