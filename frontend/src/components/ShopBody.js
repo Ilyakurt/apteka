@@ -20,7 +20,6 @@ const ShopBody= props => {
                     dialogState={dialogState}
                     setDialogState={setDialogState}
                     item={activeCard}
-                    // insertOrUpdateItem={props.ShopMain.insertOrUpdateItem}
                 />
             </div>
             <div className="grid">
@@ -28,10 +27,8 @@ const ShopBody= props => {
                   props.ShopMain.items.map(item => (
                         <ShopItem
                             key={item.id}
-                            //setItems={props.ShopMain.items}
                             item={item}
                             setActiveCard={setActiveCard}
-                            deleteCard={props.ShopMain.deleteCard}
                             setDialogState={setDialogState}
                         />)) }
             </div>

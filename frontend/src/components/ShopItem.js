@@ -1,5 +1,5 @@
 import React from 'react';
-import {observer} from "mobx-react";
+import {inject, observer} from "mobx-react";
 
 const ShopItem = ( props ) => {
 
@@ -11,7 +11,7 @@ const ShopItem = ( props ) => {
     return(
         <div className="card">
             <div className="card-topbar">
-                <button onClick={() => props.deleteCard(props.item)}>X</button>
+                <button onClick={() => props.ShopMain.deleteCard(props.item)}>X</button>
             </div>
             <div className="card-body" onClick={detailHandler}>
                 <div className="title">{props.item.title}</div>
@@ -23,4 +23,4 @@ const ShopItem = ( props ) => {
     );
 }
 
-export default observer(ShopItem);
+export default inject('ShopMain')(observer(ShopItem));
