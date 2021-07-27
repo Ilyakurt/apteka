@@ -12,14 +12,12 @@ const CardDetail = ( props ) => {
     const [inputTitle, setInputTitle] = useState("");
     const [inputDescription, setInputDescription] = useState("");
     const [inputURL, setInputURL] = useState("");
-    const [editedItem, setEditedItem] = useState(null);
 
     useEffect(() => {
-            setEditedItem(props.item);
-            setInputTitle(props.item?.title);
-            setInputDescription(props.item?.description);
-            setInputURL(props.item?.url);
-        }, [props.item]
+            setInputTitle(props.ShopMain.activeCard?.title);
+            setInputDescription(props.ShopMain.activeCard?.description);
+            setInputURL(props.ShopMain.activeCard?.url);
+        }, [props.ShopMain.activeCard]
     );
 
     const titleHandler = e => {
@@ -35,18 +33,17 @@ const CardDetail = ( props ) => {
     const insertOrUpdateItemMain = () => {
         props.ShopMain.insertOrUpdateItem(
             {
-                id: editedItem ? editedItem.id : uuid(),
+                id: props.ShopMain.activeCard ? props.ShopMain.activeCard.id : uuid(),
                 title: inputTitle,
                 description: inputDescription,
                 url: inputURL,
-                date: editedItem ? editedItem.date : Date.now()
+                date: props.ShopMain.activeCard ? props.ShopMain.activeCard.date : Date.now()
             }
         )
 
         setInputTitle("")
         setInputDescription("")
         setInputURL("")
-        setEditedItem(null);
 
         props.setDialogState(false);
     };

@@ -4,7 +4,7 @@ import {inject, observer} from "mobx-react";
 const ShopItem = ( props ) => {
 
     const detailHandler = () => {
-        props.setActiveCard(props.item);
+        props.ShopMain.activeCard=props.item;
         props.setDialogState(true);
     }
 

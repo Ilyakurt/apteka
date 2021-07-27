@@ -6,7 +6,6 @@ import {inject, observer} from 'mobx-react';
 
 const ShopBody= props => {
     const [dialogState, setDialogState] = useState(false);
-    const [activeCard, setActiveCard] = useState(null);
 
     return (
         <div className="shop-body">
@@ -17,7 +16,6 @@ const ShopBody= props => {
                 <CardDetail
                     dialogState={dialogState}
                     setDialogState={setDialogState}
-                    item={activeCard}
                 />
             </div>
             <div className="grid">
@@ -26,7 +24,6 @@ const ShopBody= props => {
                         <ShopItem
                             key={item.id}
                             item={item}
-                            setActiveCard={setActiveCard}
                             setDialogState={setDialogState}
                         />)) }
             </div>

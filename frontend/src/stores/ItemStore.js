@@ -2,6 +2,8 @@ import {action, makeAutoObservable, observable} from "mobx";
 
 export default class ItemStore{
     @observable items=[];
+    @observable activeCard;
+
     constructor() {
         makeAutoObservable(this)
     }
