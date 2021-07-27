@@ -2,7 +2,7 @@ import Router from 'express'
 const router = new Router()
 import db from '../db/index.js'
 
-router.get('/get', (req, res) => {
+router.get('/', (req, res) => {
     let sql = `SELECT  p.product_id, name, mnn_id, mnn_name, mnn_code
     FROM products p
     LEFT JOIN mnn m
@@ -16,8 +16,8 @@ router.get('/get', (req, res) => {
         rows.forEach((row) => {
             tempArr.push({
                 id: row.product_id,
-                name: row.name, 
-                mnn_id: row.mnn_id, 
+                name: row.name,
+                mnn_id: row.mnn_id,
                 mnn_name: row.mnn_name,
                 mnn_code: row.mnn_code
             })
